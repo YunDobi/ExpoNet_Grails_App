@@ -1,0 +1,6 @@
+#Thu, 06 Apr 2023 20:35:22 -0700
+
+info.app.version=0.1
+info.app.name=server
+grails.env=development
+info.app.grailsVersion=3.3.3
