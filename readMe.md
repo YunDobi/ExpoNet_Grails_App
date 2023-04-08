@@ -11,7 +11,7 @@ experiences, and improved my research skill with version control.
 ## Versions ##
 
 [![TechSkills](https://skillicons.dev/icons?i=js,react,redux,mongodb,git)](https://skillicons.dev)
-and ![grails.png](..%2F..%2F..%2FDownloads%2Fgrails.png )
+and ![grails.png](./doc//grails.png)
 - JDK 8
 - Grails 3
 - React 18.2.0
@@ -32,9 +32,9 @@ the url will be looks like ```mongodb://<username>:<password>@localhost:27017/ad
 - npm start
 
 ## Demo ##
-![Screen Shot 2023-04-08 at 3.43.25 AM.png](..%2F..%2FScreen%20Shot%202023-04-08%20at%203.43.25%20AM.png)
-![Screen Shot 2023-04-08 at 3.43.38 AM.png](..%2F..%2FScreen%20Shot%202023-04-08%20at%203.43.38%20AM.png)
-![Screen Shot 2023-04-08 at 3.44.01 AM.png](..%2F..%2FScreen%20Shot%202023-04-08%20at%203.44.01%20AM.png)
+![Screen Shot 2023-04-08 at 3.43.25 AM.png](./doc//Screen%20Shot%202023-04-08%20at%203.43.25%20AM.png)
+![Screen Shot 2023-04-08 at 3.43.38 AM.png](./doc//Screen%20Shot%202023-04-08%20at%203.43.38%20AM.png)
+![Screen Shot 2023-04-08 at 3.44.01 AM.png](./doc//Screen%20Shot%202023-04-08%20at%203.44.01%20AM.png)
 
 ### comment ###
 if the setting or command is not working correctly, welcome to ask my command that I used on my localhost.
