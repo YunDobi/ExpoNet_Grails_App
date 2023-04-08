@@ -23,27 +23,34 @@ export const Edit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      dispatch(EditData({id,name, address, total_item, total_spent}))
-      navigate('/detail/'+id)
+      dispatch(EditData({ id, name, address, total_item, total_spent }));
+      navigate('/detail/' + id);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-
-
-    // axios.put('http://localhost:8080/clients/'+id, { name, address, total_item, total_spent })
-    //   .then((result) => {
-    //     navigate('/detail/'+id)
-    //   });
   };
 
   return (
     <div className='Edit_container'>
       <div className='panel panel-default'>
         <div className='panel-heading'>
-          <h3 className='panel-title'>EDIT Clients</h3>
+          <h3 className='panel-title'>EDIT CLIENT</h3>
         </div>
         <div className='panel-body'>
           <h4>
+          <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              fill='currentColor'
+              class='bi bi-arrow-return-left'
+              viewBox='0 0 16 16'
+            >
+              <path
+                fill-rule='evenodd'
+                d='M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z'
+              />
+            </svg>{' '}
             <Link to={`/`}>
               <span
                 className='glyphicon glyphicon-eye-open'
@@ -71,7 +78,9 @@ export const Edit = () => {
                 className='form-control'
                 name='address'
                 value={address}
-                onChange={(e) => {setAddress(e.target.value)}}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
                 placeholder='Address'
               />
             </div>
@@ -82,7 +91,9 @@ export const Edit = () => {
                 className='form-control'
                 name='total_item'
                 value={total_item}
-                onChange={(e) => {setTotal_item(e.target.value)}}
+                onChange={(e) => {
+                  setTotal_item(e.target.value);
+                }}
                 placeholder='Total Purchased Items'
               />
             </div>
@@ -93,7 +104,9 @@ export const Edit = () => {
                 className='form-control'
                 name='total_spent'
                 value={total_spent}
-                onChange={(e) => {setTotal_spent(e.target.value)}}
+                onChange={(e) => {
+                  setTotal_spent(e.target.value);
+                }}
                 placeholder='Total Spent'
               />
             </div>
