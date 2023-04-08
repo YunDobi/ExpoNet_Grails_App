@@ -1,28 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { RequestData } from '../slices/slices';
 import axios from 'axios'
+
+import { useSelector, useDispatch } from 'react-redux';
 
 
 export const Home = () => {
-  const [users, setUsers] = useState([])
-  const navigate = useNavigate();
-
-  const requestData = async () => {
-    try {
-      await axios.get('http://localhost:8080/clients')
-      .then((result) => {
-        console.log(result.data);
-        setUsers(result.data)
-      })
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
+  const  usersList  = useSelector(state => state.users.list);
+  const dispatch = useDispatch();
+  
   useEffect(() => {
-    requestData()
+    dispatch(RequestData())
   },[])
 
+  
 
 
   return (
@@ -44,7 +36,7 @@ export const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map(cust =>
+                {usersList.map(cust =>
                   <tr key={cust.id}>
                     <td><Link to={`/detail/${cust.id}`}>{cust.name}</Link></td>
                     <td>{cust.address}</td>

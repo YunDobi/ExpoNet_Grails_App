@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { requestData } from '../slices/userSlice';
+import { CreateData } from '../slices/slices';
 
 export const Create = () => {
+  const users = useSelector((state) => state.users)
+  const dispatch = useDispatch()
+
   const [newUser, setNewUser] = useState({
     name: '',
     address: '',
@@ -18,16 +24,17 @@ export const Create = () => {
     const state = newUser
     state[e.target.name] = e.target.value;
     setNewUser({...state})
-    console.log(newUser)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    axios.post('http://localhost:8080/clients', {name, address, total_item, total_spent})
-    .then((result) => {
+    dispatch(CreateData({name,address,total_item,total_spent}))
+    if (users.error.length > 0) {
+      console.log(users.error)
+    } else {
       navigate('/')
-    })
+    }
   }
 
   return (
