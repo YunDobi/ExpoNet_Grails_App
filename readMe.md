@@ -2,11 +2,7 @@
 
 # OverVeiw #
 
-ExpoClient is a one of the CRUD format of application that created by redux with bootstrap for simple and clean UI, 
-Grails for api server, and lastly used Mongodb server for database. While I was working on this project, the biggest hardship
-was limited resources for learning Grails, and mongodb server authorization.
-However, spent more time for reading the documentation deeply, and controlling multiple versions of technical tools were great 
-experiences, and improved my research skill with version control.
+ExpoClient is one of the CRUD-formatted applications created by Redux with Bootstrap for a simple and clean UI, GRAILS for an API server, and lastly, MongoDB for the database. While I was working on this project, the biggest hardship was limited resources for learning GRAILS and MongoDB server authorization. However, spending more time reading the documentation deeply and controlling multiple versions of technical tools were great experiences and improved my research skills with version control.
 
 ## Versions ##
 
