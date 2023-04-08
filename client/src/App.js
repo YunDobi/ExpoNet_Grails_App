@@ -4,6 +4,7 @@ import {Home} from './components/Home'
 import {Edit} from './components/Edit'
 import {Create} from './components/Create'
 import {Detail} from './components/Detail'
+import './App.css'
 
 
 function App() {
