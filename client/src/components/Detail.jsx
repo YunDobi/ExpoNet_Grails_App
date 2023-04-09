@@ -18,10 +18,6 @@ export const Detail = () => {
   const RequestDelete = () => {
     dispatch(DeleteData(id));
     navigate('/');
-    // console.log(id);
-    // axios.delete(`http://localhost:8080/clients/${id}`).then((result) => {
-    //   navigate('/');
-    // });
   };
 
   return (

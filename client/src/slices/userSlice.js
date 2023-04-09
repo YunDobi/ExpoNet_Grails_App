@@ -1,24 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { RequestData, CreateData, EditData, GetUser, DeleteData } from './slices.js';
+import {
+  RequestData,
+  CreateData,
+  EditData,
+  GetUser,
+  DeleteData,
+} from './slices.js';
 
+const initialState = { list: [], loading: false, currentUser: {}, error: '' };
 
-const initialState = { list: [], loading: false, currentUser: {},error: ''};
-
-
+//if the reducers is peinding
 const setPending = (builder, actionData) => {
-    builder.addCase(actionData.pending, (state) => {
-      state.loading = true;
-    })
-}
+  builder.addCase(actionData.pending, (state) => {
+    state.loading = true;
+  });
+};
 
+//if the reducers is rejected
+const setRejected = (builder, actionData) => {
+  builder.addCase(DeleteData.rejected, (state, action) => {
+    state.loading = false;
+    state.list = [];
+    state.error = action.error.message;
+  });
+};
 
 const userSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    setPending(builder, RequestData)
+    setPending(builder, RequestData);
+    setRejected(builder, RequestData);
 
     builder.addCase(RequestData.fulfilled, (state, action) => {
       console.log(action);
@@ -27,63 +40,42 @@ const userSlice = createSlice({
       state.error = '';
     });
 
+    // create the data
+    setPending(builder, CreateData);
+    setRejected(builder, CreateData);
 
-    setPending(builder, CreateData)
-    
     builder.addCase(CreateData.fulfilled, (state, action) => {
-      console.log(action)
+      console.log(action);
       state.loading = false;
-    });
-    builder.addCase(CreateData.rejected, (state, action) => {
-      state.loading = false;
-      state.list = [];
-      state.error = action.error.message;
     });
 
-    builder.addCase(DeleteData.pending, (state) => {
-      state.loading = true;
-    });
+    // delete the data
+    setPending(builder, DeleteData);
+    setRejected(builder, DeleteData);
     builder.addCase(DeleteData.fulfilled, (state, action) => {
-      console.log(action)
-      state.currentUser = {}
+      console.log(action);
+      state.currentUser = {};
       state.loading = false;
     });
-    builder.addCase(DeleteData.rejected, (state, action) => {
-      state.loading = false;
-      state.list = [];
-      state.error = action.error.message;
-    });    
 
-
-    builder.addCase(GetUser.pending, (state) => {
-      state.loading = true;
-    });
+    // get one user
+    setPending(builder, GetUser);
+    setRejected(builder, GetUser);
     builder.addCase(GetUser.fulfilled, (state, action) => {
       state.loading = false;
       state.currentUser = action.payload;
       state.error = '';
     });
-    builder.addCase(GetUser.rejected, (state, action) => {
-      state.loading = false;
-      state.currentUser = [];
-      state.error = action.error.message;
-    });
 
-    builder.addCase(EditData.pending, (state) => {
-      state.loading = true;
-    });
+    // edit the data
+    setPending(builder, EditData);
+    setRejected(builder, EditData);
     builder.addCase(EditData.fulfilled, (state, action) => {
-      console.log("action recieved",action);
+      console.log('action recieved', action);
       state.loading = false;
-      state.currentUser = action.payload
-    });
-    builder.addCase(EditData.rejected, (state, action) => {
-      state.loading = false;
-      state.list = [];
-      state.error = action.error.message;
+      state.currentUser = action.payload;
     });
   },
 });
 
-// export const { userAdded, userDeleted, userUpdated } = userSlice.actions;
 export default userSlice.reducer;
