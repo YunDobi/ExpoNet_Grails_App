@@ -18,7 +18,7 @@ const setPending = (builder, actionData) => {
 
 //if the reducers is rejected
 const setRejected = (builder, actionData) => {
-  builder.addCase(DeleteData.rejected, (state, action) => {
+  builder.addCase(actionData.rejected, (state, action) => {
     state.loading = false;
     state.list = [];
     state.error = action.error.message;
@@ -34,7 +34,6 @@ const userSlice = createSlice({
     setRejected(builder, RequestData);
 
     builder.addCase(RequestData.fulfilled, (state, action) => {
-      console.log(action);
       state.loading = false;
       state.list = action.payload;
       state.error = '';
@@ -42,7 +41,7 @@ const userSlice = createSlice({
 
     // create the data
     setPending(builder, CreateData);
-    setRejected(builder, CreateData);
+    // setRejected(builder, CreateData);
 
     builder.addCase(CreateData.fulfilled, (state, action) => {
       console.log(action);
@@ -51,7 +50,7 @@ const userSlice = createSlice({
 
     // delete the data
     setPending(builder, DeleteData);
-    setRejected(builder, DeleteData);
+    // setRejected(builder, DeleteData);
     builder.addCase(DeleteData.fulfilled, (state, action) => {
       console.log(action);
       state.currentUser = {};
@@ -60,7 +59,7 @@ const userSlice = createSlice({
 
     // get one user
     setPending(builder, GetUser);
-    setRejected(builder, GetUser);
+    // setRejected(builder, GetUser);
     builder.addCase(GetUser.fulfilled, (state, action) => {
       state.loading = false;
       state.currentUser = action.payload;
