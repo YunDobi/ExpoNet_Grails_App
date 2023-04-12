@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { requestData } from '../slices/userSlice';
 import { CreateData } from '../slices/slices';
 
 export const Create = () => {

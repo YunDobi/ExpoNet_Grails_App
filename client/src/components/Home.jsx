@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RequestData } from '../slices/slices';
-import axios from 'axios';
-import { Navbar } from './Navbar';
 
 import { useSelector, useDispatch } from 'react-redux';
 
