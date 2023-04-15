@@ -19,7 +19,7 @@ class ClientsDataRequest {
   }
 
   edit(id, data) {
-    console.log("rec", dataURL.put, id, data)
+    // console.log("rec", dataURL.put, id, data)
     return dataURL.put(`/${id}`, data);
   }
 
