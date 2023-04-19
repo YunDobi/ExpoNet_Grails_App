@@ -35,3 +35,4 @@ the url will be looks like ```mongodb://<username>:<password>@localhost:27017/ad
 ### comment ###
 if the setting or command is not working correctly, welcome to ask my command that I used on my localhost.
 Contact me at lyc1353@gmail.com.
+mongo compass to see the database will help a lot

@@ -71,9 +71,9 @@ environments:
     development:
         grails:
             mongodb:
-                url: "mongodb://MyAdmin:1353@localhost:27017/admin?authSource=admin"
+                url: "mongodb://MyAdmin:1353@localhost:27017/crud?authSource=admin"
 
     production:
         grails:
             mongodb:
-                url: "mongodb://MyAdmin:1353@localhost:27017/admin?authSource=admin"
+                url: "mongodb://MyAdmin:1353@localhost:27017/crud?authSource=admin"
